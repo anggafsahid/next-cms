@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchPages } from '../lib/pages';
 import Link from 'next/link'; // Import Link component
+import Image from 'next/image';
 
 // Define the type for a single page
 interface Page {
@@ -37,9 +38,9 @@ const PagesList = () => {
     const isImage = media.endsWith('.jpg') || media.endsWith('.jpeg') || media.endsWith('.png') || media.endsWith('.gif');
 
     if (isVideo) {
-      return <img src="https://via.placeholder.com/300x300.png?text=Video+Thumbnail" alt="Video Thumbnail" className="w-full h-full object-cover rounded mb-4" />;
+      return <Image src="https://via.placeholder.com/300x300.png?text=Video+Thumbnail" alt="Video Thumbnail" className="w-full h-full object-cover rounded mb-4" />;
     } else if (isImage) {
-      return <img src={media} alt="Media" className="w-full h-full object-cover rounded mb-4" />;
+      return <Image src={media} alt="Media" className="w-full h-full object-cover rounded mb-4" />;
     }
     return null;
   };

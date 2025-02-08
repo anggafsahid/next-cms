@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next';
+import Image from 'next/image';
 
 interface Team {
   id: number;
@@ -24,7 +25,7 @@ const TeamsPage = ({ teams }: TeamsPageProps) => {
           >
             {/* Profile Picture */}
             <div className="w-32 h-32 mx-auto overflow-hidden rounded-full mb-4 border-4 border-blue-500 shadow-xl group-hover:shadow-2xl transition-shadow">
-              <img
+              <Image
                 src={team.profile_picture}
                 alt={team.name}
                 className="w-full h-full object-cover"

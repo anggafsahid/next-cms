@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchMedia } from '../lib/media';
+import Image from 'next/image';
 
 // Define the type for a single media item
 interface MediaItem {
@@ -29,7 +30,7 @@ const MediaList = () => {
             key={item.id}
             className="group relative border rounded-lg overflow-hidden bg-white shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl"
           >
-            <img
+            <Image
               src={item.file_path}
               alt={item.file_name}
               className="w-full h-auto object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
