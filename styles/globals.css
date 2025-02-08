@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+
+  /* custom.css or in your global styles */
+h1, h2, h3, h4, h5, h6 {
+  display: block;
+  font-size: 2rem; /* Or adjust as needed */
+  font-weight: bold;
+  color: #333;
+  margin: 1rem 0;
+}
