@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'; // Import the useRouter hook
 import { fetchPages } from '../../lib/pages'; // Assuming you already have a fetchPages function
+import Image from 'next/image';
 
 // Define the type for a single page
 interface Page {
@@ -32,12 +33,6 @@ const PageShow = () => {
 
   if (!page) return <div>Loading...</div>; // Show a loading state while the page is being fetched
 
-  // Function to strip HTML tags from content
-  const stripHtmlTags = (htmlContent: string) => {
-    const doc = new DOMParser().parseFromString(htmlContent, 'text/html');
-    return doc.body.textContent || "";
-  };
-
   // Function to render media (image or video)
   const renderMedia = (media: string) => {
     if (!media) return null;
@@ -50,10 +45,10 @@ const PageShow = () => {
 
     if (isVideo) {
       // Show a placeholder image or thumbnail for video
-      return <img src="https://via.placeholder.com/600x400.png?text=Video+Thumbnail" alt="Video Thumbnail" className={mediaClass} />;
+      return <Image src={media} alt="Video Thumbnail" className={mediaClass} />;
     } else if (isImage) {
       // Show the actual image if it's an image file
-      return <img src={media} alt="Media" className={mediaClass} />;
+      return <Image src={media} alt="Media" className={mediaClass} />;
     }
     return null;
   };
