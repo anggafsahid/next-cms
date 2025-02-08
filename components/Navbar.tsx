@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="bg-gray-800 p-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="text-white text-2xl font-bold">
-          <Link href="/">My CMS</Link>
+          <Link href="/">Palm Code</Link>
         </div>
         <div className="flex space-x-4">
           <Link href="/">
