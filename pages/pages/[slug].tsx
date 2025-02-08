@@ -1,11 +1,20 @@
-// pages/pages/[slug].tsx
-
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'; // Import the useRouter hook
 import { fetchPages } from '../../lib/pages'; // Assuming you already have a fetchPages function
 
+// Define the type for a single page
+interface Page {
+  id: string; // or number depending on your API response
+  slug: string;
+  title: string;
+  content: string;
+  media: string;  // Assuming media is a URL string, adjust if necessary
+  author: string;
+  published_at: string; // Ensure this is a valid date string or Date object
+}
+
 const PageShow = () => {
-  const [page, setPage] = useState<any>(null);
+  const [page, setPage] = useState<Page | null>(null); // Use Page type or null for initial state
   const router = useRouter(); // Hook to get the router object
   const { slug } = router.query; // Extract slug from the URL
 
@@ -13,8 +22,8 @@ const PageShow = () => {
     if (slug) {
       const getPage = async () => {
         const pagesData = await fetchPages(); // Fetch all pages
-        const selectedPage = pagesData.find((page: any) => page.slug === slug); // Find page by slug
-        setPage(selectedPage);
+        const selectedPage = pagesData.find((page: Page) => page.slug === slug); // Find page by slug
+        setPage(selectedPage || null); // Ensure to handle the case if the page is not found
       };
 
       getPage();
